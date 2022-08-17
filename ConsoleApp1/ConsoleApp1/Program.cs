@@ -25,10 +25,11 @@ int[] nums = { 1, 3, 5, 6 };
 #region 804. Unique Morse Code Words
 
 string[] words = { "gin", "zen", "gig", "msg" };
+//LeetCode.UniqueMorseRepresentations(words);
 
 #endregion 804. Unique Morse Code Words
 
-//LeetCode.UniqueMorseRepresentations(words);
+
 public static class LeetCode
 {
     #region 120. Triangle
@@ -118,6 +119,17 @@ public static class LeetCode
     }
 
     #endregion 804. Unique Morse Code Words
+
+    #region 33. Search in Rotated Sorted Array
+    //Input: nums = [4,5,6,7,0,1,2], target = 0
+    //Output: 4
+    public static int SearchInRotatedSortedArray(int[] nums, int target)
+    {
+
+        return 0;
+    }
+
+    #endregion 33. Search in Rotated Sorted Array
 
 }
 
