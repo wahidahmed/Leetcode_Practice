@@ -125,7 +125,26 @@ public static class LeetCode
     //Output: 4
     public static int SearchInRotatedSortedArray(int[] nums, int target)
     {
+        int lIndex = 0, rIndex = nums.Length - 1;
+        bool isPivotElement = false;
+        int pivotElement = 0;
+        while (lIndex <= rIndex)
+        {
+            int mIndex = (lIndex + rIndex) / 2;
+            int mElement = nums[mIndex];
+            if (pivotElement == 0)
+            {
+                if (mElement > nums[mIndex - 1] && mElement > nums[mIndex + 1])
+                {
+                    pivotElement = mElement;
+                }
+                if (mElement < nums[mIndex - 1] && mElement < nums[mIndex + 1])
+                {
+                    pivotElement = nums[mIndex - 1];
+                }
+            }
 
+        }
         return 0;
     }
 

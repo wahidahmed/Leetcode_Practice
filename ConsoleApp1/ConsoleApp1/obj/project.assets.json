@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\wahid\\Programming\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "E:\\wahid\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "E:\\wahid\\Programming\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectPath": "E:\\wahid\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\wahid\\.nuget\\packages\\",
-      "outputPath": "E:\\wahid\\Programming\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\obj\\",
+      "outputPath": "E:\\wahid\\Leetcode_Practice\\ConsoleApp1\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wahid\\AppData\\Roaming\\NuGet\\NuGet.Config",
