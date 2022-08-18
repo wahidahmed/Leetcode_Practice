@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Text;
 
 Console.WriteLine("Hello, Leet Code !");
 
@@ -29,7 +28,12 @@ string[] words = { "gin", "zen", "gig", "msg" };
 
 #endregion 804. Unique Morse Code Words
 
+#region 33. Search in Rotated Sorted Array
 
+//int[] numsPivot = {5,1,3 };
+//Console.WriteLine(LeetCode.SearchInRotatedSortedArray(numsPivot, 5));
+
+#endregion  33. Search in Rotated Sorted Array
 public static class LeetCode
 {
     #region 120. Triangle
@@ -102,7 +106,7 @@ public static class LeetCode
                 if (nw == newWords[j])
                 {
                     test = false;
-                     break;
+                    break;
                 }
             }
 
@@ -113,7 +117,7 @@ public static class LeetCode
 
             //newWords[i] = nw;
         }
-       
+
 
         return newWords.Count;
     }
@@ -121,34 +125,60 @@ public static class LeetCode
     #endregion 804. Unique Morse Code Words
 
     #region 33. Search in Rotated Sorted Array
-    //Input: nums = [4,5,6,7,0,1,2], target = 0
-    //Output: 4
     public static int SearchInRotatedSortedArray(int[] nums, int target)
     {
-        int lIndex = 0, rIndex = nums.Length - 1;
-        bool isPivotElement = false;
-        int pivotElement = 0;
-        while (lIndex <= rIndex)
+
+        int lI = 0;
+        int rI = nums.Length-1;
+        while (lI<=rI)
         {
-            int mIndex = (lIndex + rIndex) / 2;
-            int mElement = nums[mIndex];
-            if (pivotElement == 0)
+            int mI = (lI + rI) / 2;
+            if (target == nums[mI])
             {
-                if (mElement > nums[mIndex - 1] && mElement > nums[mIndex + 1])
+                return mI;
+            }
+            else if (nums[mI] >= nums[lI])
+            {
+                if (target <= nums[mI]&& target >= nums[lI])
                 {
-                    pivotElement = mElement;
+                    rI = mI - 1;
                 }
-                if (mElement < nums[mIndex - 1] && mElement < nums[mIndex + 1])
+                else
                 {
-                    pivotElement = nums[mIndex - 1];
+                    lI = mI + 1;
                 }
             }
+            else
+            {
 
+                if (target >= nums[mI] && target <= nums[rI])
+                {
+                    lI = mI + 1;
+                }
+                else
+                {
+                    rI = mI - 1;
+                }
+            }
         }
-        return 0;
+        return -1;
     }
 
     #endregion 33. Search in Rotated Sorted Array
 
+
+    #region 34. Find First and Last Position of Element in Sorted Array
+
+    public static int[] SearchRange(int[] nums, int target)
+    {
+        int[] result = { -1, -1 };
+
+
+
+
+        return result;
+    }
+
+    #endregion 34. Find First and Last Position of Element in Sorted Array
 }
 
