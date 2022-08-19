@@ -17,7 +17,7 @@ int[][] triangleArr = new int[][]
 
 #region 35. Search Insert Position
 //int[] nums = { 3, 5, 7, 12, 13, 45, 78 };
-int[] nums = { 1, 3, 5, 6 };
+//int[] nums = { 1, 3, 5, 6 };
 //Console.WriteLine(LeetCode.SearchInsert(nums, 7));
 #endregion 35. Search Insert Position
 
@@ -34,6 +34,13 @@ string[] words = { "gin", "zen", "gig", "msg" };
 //Console.WriteLine(LeetCode.SearchInRotatedSortedArray(numsPivot, 5));
 
 #endregion  33. Search in Rotated Sorted Array
+
+#region 34. Find First and Last Position of Element in Sorted Array
+
+int[] nums = { 5, 7, 7, 8, 8, 10 };
+Console.WriteLine(LeetCode.SearchRange(nums, 6));
+
+#endregion  34. Find First and Last Position of Element in Sorted Array
 public static class LeetCode
 {
     #region 120. Triangle
@@ -171,12 +178,58 @@ public static class LeetCode
 
     public static int[] SearchRange(int[] nums, int target)
     {
-        int[] result = { -1, -1 };
+        int[] arr = { -1, -1 };
+        int lIndex = 0;
+        int ln = nums.Length;
+        int rIndex = ln - 1;
+        bool isDone = false;
+        int test = 0;
+        while (lIndex<=rIndex)// 5, 7, 7, 8, 8, 10   target=8
+        {
+            test++;
+            int mIndex = (lIndex + rIndex) / 2;
+            if(target == nums[mIndex])
+            {
+                //if(!isDone && (mIndex - 1) >= 0)
+                //{
+                //    if (nums[mIndex - 1] < nums[mIndex])
+                //    {
+                //        arr[0] = mIndex;
+                //        isDone = true;
+                //    }
+                //    else
+                //    {
+                //        arr[0] = mIndex - 1;
+                //        rIndex = mIndex - 1;
+                //        lIndex = 0;
+                //    }
+                //}
+                //if(isDone && (mIndex + 1) <= (ln - 1))
+                //{
+                //    if (nums[mIndex + 1] > nums[mIndex])
+                //    {
+                //        arr[1] = mIndex;
 
-
-
-
-        return result;
+                //        return arr;
+                //    }
+                //    else
+                //    {
+                //        arr[1] = mIndex + 1;
+                //        lIndex=mIndex + 1;
+                //        rIndex = ln-1;
+                //    }
+                //}
+               
+            }
+            else if (target > nums[mIndex])
+            {
+                lIndex = mIndex+1;
+            }
+            else {
+                rIndex = mIndex-1;
+            }
+        }
+        return arr;
     }
 
     #endregion 34. Find First and Last Position of Element in Sorted Array
