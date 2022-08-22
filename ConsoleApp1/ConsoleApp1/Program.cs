@@ -37,10 +37,16 @@ string[] words = { "gin", "zen", "gig", "msg" };
 
 #region 34. Find First and Last Position of Element in Sorted Array
 
-int[] nums = { 5, 7, 7, 8, 8, 10 };
-Console.WriteLine(LeetCode.SearchRange(nums, 6));
+//int[] nums = { 5, 7, 7, 8, 8, 10 };
+//Console.WriteLine(LeetCode.SearchRange(nums, 8));
 
 #endregion  34. Find First and Last Position of Element in Sorted Array
+
+
+#region #region 153. Find Minimum in Rotated Sorted Array
+//int[] nums = { 4, 5, 6, 7, 0, 1, 2 };
+//Console.WriteLine(LeetCode.FindMin_153(nums));
+#endregion #region 153. Find Minimum in Rotated Sorted Array
 public static class LeetCode
 {
     #region 120. Triangle
@@ -136,8 +142,8 @@ public static class LeetCode
     {
 
         int lI = 0;
-        int rI = nums.Length-1;
-        while (lI<=rI)
+        int rI = nums.Length - 1;
+        while (lI <= rI)
         {
             int mI = (lI + rI) / 2;
             if (target == nums[mI])
@@ -146,7 +152,7 @@ public static class LeetCode
             }
             else if (nums[mI] >= nums[lI])
             {
-                if (target <= nums[mI]&& target >= nums[lI])
+                if (target <= nums[mI] && target >= nums[lI])
                 {
                     rI = mI - 1;
                 }
@@ -178,60 +184,131 @@ public static class LeetCode
 
     public static int[] SearchRange(int[] nums, int target)
     {
-        int[] arr = { -1, -1 };
-        int lIndex = 0;
-        int ln = nums.Length;
-        int rIndex = ln - 1;
-        bool isDone = false;
-        int test = 0;
-        while (lIndex<=rIndex)// 5, 7, 7, 8, 8, 10   target=8
-        {
-            test++;
-            int mIndex = (lIndex + rIndex) / 2;
-            if(target == nums[mIndex])
-            {
-                //if(!isDone && (mIndex - 1) >= 0)
-                //{
-                //    if (nums[mIndex - 1] < nums[mIndex])
-                //    {
-                //        arr[0] = mIndex;
-                //        isDone = true;
-                //    }
-                //    else
-                //    {
-                //        arr[0] = mIndex - 1;
-                //        rIndex = mIndex - 1;
-                //        lIndex = 0;
-                //    }
-                //}
-                //if(isDone && (mIndex + 1) <= (ln - 1))
-                //{
-                //    if (nums[mIndex + 1] > nums[mIndex])
-                //    {
-                //        arr[1] = mIndex;
-
-                //        return arr;
-                //    }
-                //    else
-                //    {
-                //        arr[1] = mIndex + 1;
-                //        lIndex=mIndex + 1;
-                //        rIndex = ln-1;
-                //    }
-                //}
-               
-            }
-            else if (target > nums[mIndex])
-            {
-                lIndex = mIndex+1;
-            }
-            else {
-                rIndex = mIndex-1;
-            }
-        }
+        int[] arr = new int[2];
+        arr[0] = SearchRangeFirstIndex(nums, target);
+        arr[1] = SearchRangeLastIndex(nums, target);
         return arr;
     }
 
+    private static int SearchRangeFirstIndex(int[] nums, int target)
+    {
+        int index = -1;
+        int lIndex = 0;
+        int rIndex = nums.Length - 1;
+
+        while (lIndex <= rIndex)
+        {
+            int mIndex = lIndex + (rIndex - lIndex) / 2;
+            if (target == nums[mIndex])
+            {
+                index = mIndex;
+            }
+
+            if (target <= nums[mIndex])
+            {
+                rIndex = mIndex - 1;
+            }
+            else
+            {
+                lIndex = mIndex + 1;
+            }
+        }
+        return index;
+    }
+
+    private static int SearchRangeLastIndex(int[] nums, int target)
+    {
+        int index = -1;
+        int lIndex = 0;
+        int rIndex = nums.Length - 1;
+
+        while (lIndex <= rIndex)
+        {
+            int mIndex = lIndex + (rIndex - lIndex) / 2;
+            if (target == nums[mIndex])
+            {
+                index = mIndex;
+            }
+
+            if (target >= nums[mIndex])
+            {
+                lIndex = mIndex + 1;
+            }
+            else
+            {
+                rIndex = mIndex - 1;
+            }
+        }
+        return index;
+    }
+
     #endregion 34. Find First and Last Position of Element in Sorted Array
+
+    #region 153. Find Minimum in Rotated Sorted Array
+
+    public static int FindMin_153(int[] nums)
+    {
+        int lIndex = 0;
+        int rIndex = nums.Length - 1;
+        bool nTimeRoteted = true;
+        if (nums.Length == 0) return nums[0];
+        if (nums[0] > nums[nums.Length - 1])
+        {
+            nTimeRoteted = false;
+        }
+
+        if (!nTimeRoteted)
+        {
+            while (lIndex <= rIndex)
+            {
+                int mIndex = lIndex + (rIndex - lIndex) / 2;
+                if (mIndex > 0 && mIndex < (nums.Length - 1))
+                {
+                    if (nums[mIndex] < nums[mIndex - 1] && nums[mIndex] < nums[mIndex + 1])
+                    {
+                        return nums[mIndex];
+                    }
+                    else if (nums[mIndex] > nums[mIndex - 1] && nums[mIndex] > nums[mIndex + 1])
+                    {
+                        return nums[mIndex + 1];
+                    }
+                    else
+                    {
+                        if (nums[mIndex] >= nums[lIndex] && nums[mIndex] > nums[rIndex])
+                        {
+                            lIndex = mIndex + 1;
+                        }
+                        else if (nums[mIndex] >= nums[lIndex] && nums[mIndex] < nums[rIndex])
+                        {
+                            rIndex = mIndex - 1;
+                        }
+                        else if (nums[mIndex] < nums[lIndex] && nums[mIndex] < nums[rIndex])
+                        {
+                            rIndex = mIndex - 1;
+                        }
+                    }
+                }
+                else
+                {
+                    if (mIndex == nums.Length - 1)
+                    {
+                        return nums[mIndex];
+                    }
+                    else if (mIndex == 0)
+                    {
+                        return nums[1];
+                    }
+                }
+
+            }
+        }
+        else
+        {
+            return nums[0];
+        }
+
+        return 0;
+    }
+    #endregion 153. Find Minimum in Rotated Sorted Array
 }
 
