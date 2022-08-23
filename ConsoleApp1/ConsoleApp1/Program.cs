@@ -346,19 +346,19 @@ public static class LeetCode
                     {
                         return nums[mIndex];
                     }
-                    else if (mElement >= nums[mIndex - 1] && mElement>lElement)
+                    else if (mElement < nums[mIndex - 1] && mElement<rElement)
                     {
-                        lIndex = mIndex + 1;
+                        if (mElement == nums[mIndex + 1])
+                        {
+                            lIndex = mIndex + 1;
+                        }
+                        else
+                        {
+                            rIndex = mIndex - 1;
+                        }
                     }
                 }
-                if (mElement>lElement && mElement>rElement)
-                {
-                    lIndex = mIndex + 1;
-                }
-                else if (mElement < lElement && mElement < rElement)
-                {
-                    rIndex = mIndex-1;
-                }
+                
             }
             return 0;
         }
