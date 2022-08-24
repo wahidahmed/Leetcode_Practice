@@ -340,13 +340,13 @@ public static class LeetCode
             {
                 int mIndex = lIndex + (rIndex - lIndex) / 2;
                 int mElement = nums[mIndex];
-                if (mIndex>0 && mIndex<nums.Length-1)
+                if (mIndex > 0 && mIndex < nums.Length - 1)
                 {
-                    if (mElement < nums[mIndex-1] && mElement < nums[mIndex + 1])
+                    if (mElement < nums[mIndex - 1] && mElement < nums[mIndex + 1])
                     {
                         return nums[mIndex];
                     }
-                    else if (mElement < nums[mIndex - 1] && mElement<rElement)
+                    else if (mElement < nums[mIndex - 1] && mElement < rElement)
                     {
                         if (mElement == nums[mIndex + 1])
                         {
@@ -358,7 +358,7 @@ public static class LeetCode
                         }
                     }
                 }
-                
+
             }
             return 0;
         }
@@ -367,8 +367,60 @@ public static class LeetCode
             return nums[0];
         }
 
-      
+
     }
     #endregion 154. Find Minimum in Rotated Sorted Array II
+
+
+    #region 1523. Count Odd Numbers in an Interval Range
+    public static int CountOdds(int low, int high)
+    {
+        bool lowEven = low % 2 == 0 ? true : false;
+        bool highEven = high % 2 == 0 ? true : false;
+        int totalDigit = ((high - low) + 1);
+        int oddNum = 0;
+        if (lowEven && highEven)
+        {
+            oddNum = totalDigit / 2;
+        }
+        else if (lowEven && !highEven)
+        {
+            oddNum = totalDigit / 2;
+        }
+        else if (!lowEven && !highEven)
+        {
+            oddNum = (totalDigit / 2) + 1;
+        }
+        else if (!lowEven && highEven)
+        {
+            oddNum = totalDigit / 2;
+        }
+
+        return oddNum;
+    }
+    #endregion 1523. Count Odd Numbers in an Interval Range
+
+    #region 1491. Average Salary Excluding the Minimum and Maximum Salary
+
+    public static double Average(int[] salary)
+    {
+        double result = 0;
+        double max = 0;
+        double min = 0;
+        foreach (var item in salary)
+        {
+            if (item > max)// [4000,3000,1000,2000]
+            {
+                max = item;
+            }
+            else
+            {
+                min = item;
+            }
+        }
+        return result;
+    }
+
+    #endregion 1491. Average Salary Excluding the Minimum and Maximum Salary
 }
 
