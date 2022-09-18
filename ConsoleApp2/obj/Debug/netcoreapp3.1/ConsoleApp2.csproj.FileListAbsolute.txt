@@ -1,0 +1,14 @@
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.exe
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.deps.json
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.runtimeconfig.json
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.runtimeconfig.dev.json
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.dll
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\bin\Debug\netcoreapp3.1\ConsoleApp2.pdb
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.csproj.AssemblyReference.cache
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.GeneratedMSBuildEditorConfig.editorconfig
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.AssemblyInfoInputs.cache
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.AssemblyInfo.cs
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.csproj.CoreCompileInputs.cache
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.dll
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.pdb
+E:\wahid\Programming\Leetcode_Practice\ConsoleApp2\obj\Debug\netcoreapp3.1\ConsoleApp2.genruntimeconfig.cache
